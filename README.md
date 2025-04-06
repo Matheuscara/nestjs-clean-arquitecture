@@ -1,4 +1,4 @@
-Claro, posso ajudá-lo a estruturar seu projeto NestJS utilizando um monorepo com arquitetura limpa. A arquitetura limpa organiza o código em camadas distintas, separando as responsabilidades e facilitando a manutenção e escalabilidade do sistema. Como seu projeto utilizará sempre PostgreSQL e NestJS, podemos focar na estruturação das pastas sem a necessidade de abstrair o banco de dados ou o framework.
+Claro, posso ajudá-lo a estruturar seu projeto NestJS utilizando um monorepo com arquitetura limpa. A arquitetura limpa organiza o código em camadas distintas, separando as responsabilidades e facilitando a manutenção e escalabilidade do sistema. Como seu projeto utilizará sempre PostgreSQL e NestJS, podemos focar na estruturação das pastas sem a necessidade de abstrair o banco de dados ou o framework.
 
 **Estrutura de Pastas Sugerida:**
 
@@ -39,26 +39,26 @@ Claro, posso ajudá-lo a estruturar seu projeto NestJS utilizando um monorepo co
 
 **Descrição das Pastas:**
 
-- **`apps`**: Contém as aplicações principais. No exemplo, temos `api` (responsável por expor endpoints HTTP) e `worker` (para processamentos assíncronos ou tarefas em segundo plano). Cada aplicação possui sua própria estrutura dentro da pasta `src`.
+- **`apps`**: Contém as aplicações principais. No exemplo, temos `api` (responsável por expor endpoints HTTP) e `worker` (para processamentos assíncronos ou tarefas em segundo plano). Cada aplicação possui sua própria estrutura dentro da pasta `src`.
 
-- **`libs`**: Abriga bibliotecas reutilizáveis entre as aplicações.
+- **`libs`**: Abriga bibliotecas reutilizáveis entre as aplicações.
 
-  - **`core`**: Contém a lógica de negócio central, incluindo:
+  - **`core`**: Contém a lógica de negócio central, incluindo:
     - **`entities`**: Definição das entidades do domínio.
     - **`repositories`**: Interfaces que definem contratos para acesso a dados.
     - **`use-cases`**: Implementações dos casos de uso que orquestram a lógica de negócio.
 
-  - **`infrastructure`**: Implementações concretas das interfaces definidas no `core`, como:
+  - **`infrastructure`**: Implementações concretas das interfaces definidas no `core`, como:
     - **`database`**: Configurações e implementações específicas para o PostgreSQL.
     - **`services`**: Integrações com serviços externos ou implementações de serviços internos.
 
-  - **`shared`**: Componentes compartilhados entre as aplicações, incluindo:
+  - **`shared`**: Componentes compartilhados entre as aplicações, incluindo:
     - **`dtos`**: Objetos de transferência de dados utilizados para comunicação entre camadas.
     - **`utils`**: Funções utilitárias e helpers.
 
 **Configuração do Monorepo com NestJS:**
 
-Para configurar o monorepo, utilize o NestJS CLI:
+Para configurar o monorepo, utilize o NestJS CLI:
 
 1. **Criar o projeto inicial:**
 
@@ -75,7 +75,7 @@ Para configurar o monorepo, utilize o NestJS CLI:
    nest generate app worker
    ```
 
-   Isso criará as pastas `apps/api` e `apps/worker`, configurando o projeto para o modo monorepo. citeturn0search2
+   Isso criará as pastas `apps/api` e `apps/worker`, configurando o projeto para o modo monorepo.
 
 3. **Criar bibliotecas compartilhadas:**
 
@@ -87,18 +87,18 @@ Para configurar o monorepo, utilize o NestJS CLI:
    nest generate library shared
    ```
 
-   Essas bibliotecas serão criadas dentro da pasta `libs` e podem ser referenciadas pelas aplicações conforme necessário. citeturn0search2
+   Essas bibliotecas serão criadas dentro da pasta `libs` e podem ser referenciadas pelas aplicações conforme necessário.
 
 **Benefícios desta Estrutura:**
 
-- **Separação de Responsabilidades**: Cada camada tem uma função bem definida, facilitando a manutenção e evolução do código.
+- **Separação de Responsabilidades**: Cada camada tem uma função bem definida, facilitando a manutenção e evolução do código.
 
-- **Reutilização de Código**: Componentes comuns são centralizados em bibliotecas, evitando duplicação e promovendo consistência.
+- **Reutilização de Código**: Componentes comuns são centralizados em bibliotecas, evitando duplicação e promovendo consistência.
 
-- **Escalabilidade**: A estrutura modular permite adicionar novas funcionalidades ou aplicações sem impactar significativamente o restante do sistema.
+- **Escalabilidade**: A estrutura modular permite adicionar novas funcionalidades ou aplicações sem impactar significativamente o restante do sistema.
 
-Essa organização é inspirada nos princípios da arquitetura limpa e é adequada para projetos que buscam alta coesão e baixo acoplamento entre os componentes.
+Essa organização é inspirada nos princípios da arquitetura limpa e é adequada para projetos que buscam alta coesão e baixo acoplamento entre os componentes.
 
-Para mais detalhes sobre a implementação da arquitetura limpa com NestJS, você pode consultar o artigo "Clean Node.js Architecture —With NestJs and TypeScript" citeturn0search5, que explora a construção de uma estrutura robusta camada por camada, desacoplando a lógica de negócio dos frameworks utilizados.
+Para mais detalhes sobre a implementação da arquitetura limpa com NestJS, você pode consultar o artigo "Clean Node.js Architecture —With NestJs and TypeScript" que explora a construção de uma estrutura robusta camada por camada, desacoplando a lógica de negócio dos frameworks utilizados.
 
 Espero que esta estrutura atenda às necessidades do seu projeto e facilite o desenvolvimento de uma aplicação robusta e bem organizada. 
