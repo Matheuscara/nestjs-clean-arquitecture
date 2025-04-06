@@ -1,4 +1,4 @@
-Claro, posso ajudá-lo a estruturar seu projeto NestJS utilizando um monorepo com arquitetura limpa. A arquitetura limpa organiza o código em camadas distintas, separando as responsabilidades e facilitando a manutenção e escalabilidade do sistema. Como seu projeto utilizará sempre PostgreSQL e NestJS, podemos focar na estruturação das pastas sem a necessidade de abstrair o banco de dados ou o framework.
+A arquitetura limpa organiza o código em camadas distintas, separando as responsabilidades e facilitando a manutenção e escalabilidade do sistema. Como seu projeto utilizará sempre PostgreSQL e NestJS, podemos focar na estruturação das pastas sem a necessidade de abstrair o banco de dados ou o framework.
 
 **Estrutura de Pastas Sugerida:**
 
@@ -96,9 +96,3 @@ Para configurar o monorepo, utilize o NestJS CLI:
 - **Reutilização de Código**: Componentes comuns são centralizados em bibliotecas, evitando duplicação e promovendo consistência.
 
 - **Escalabilidade**: A estrutura modular permite adicionar novas funcionalidades ou aplicações sem impactar significativamente o restante do sistema.
-
-Essa organização é inspirada nos princípios da arquitetura limpa e é adequada para projetos que buscam alta coesão e baixo acoplamento entre os componentes.
-
-Para mais detalhes sobre a implementação da arquitetura limpa com NestJS, você pode consultar o artigo "Clean Node.js Architecture —With NestJs and TypeScript" que explora a construção de uma estrutura robusta camada por camada, desacoplando a lógica de negócio dos frameworks utilizados.
-
-Espero que esta estrutura atenda às necessidades do seu projeto e facilite o desenvolvimento de uma aplicação robusta e bem organizada. 
