@@ -1,15 +1,16 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Inject, Injectable, Logger } from '@nestjs/common';
 import { User, UserRepository } from '@app/domain';
 import { CreateUserDto } from '../dtos/createUser.dto';
 
 @Injectable()
 export class CreateUser {
+  private readonly logger = new Logger(CreateUser.name);
   constructor(
     @Inject('UserRepository')
     private readonly repo: UserRepository,
   ) {}
 
-  async execute(createUserDto: CreateUserDto) {
+  async execute(createUserDto: CreateUserDto): Promise<User> {
     const user = new User(
       createUserDto.nome,
       createUserDto.email,
@@ -18,6 +19,8 @@ export class CreateUser {
 
     const createdUser = await this.repo.create(user);
 
-    console.log('create user usecase', createdUser);
+    this.logger.log('User created', createdUser);
+
+    return createdUser;
   }
 }

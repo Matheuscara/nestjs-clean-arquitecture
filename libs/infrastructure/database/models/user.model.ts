@@ -12,7 +12,7 @@ export class UserModel extends Model<UserModel> {
   @PrimaryKey
   @AutoIncrement
   @Column
-  id: number;
+  id?: number;
 
   @Column(DataType.STRING)
   nome: string;
