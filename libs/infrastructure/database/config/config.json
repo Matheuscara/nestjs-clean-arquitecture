@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "748596123",
+    "database": "vitrum",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

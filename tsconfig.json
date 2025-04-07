@@ -18,23 +18,20 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/core": [
-        "libs/core/src"
-      ],
-      "@app/core/*": [
-        "libs/core/src/*"
-      ],
       "@app/infrastructure": [
-        "libs/infrastructure/src"
-      ],
-      "@app/infrastructure/*": [
-        "libs/infrastructure/src/*"
+        "libs/infrastructure/index.ts"
       ],
       "@app/shared": [
-        "libs/shared/src"
+        "libs/shared/index.ts"
       ],
-      "@app/shared/*": [
-        "libs/shared/src/*"
+      "@app/domain": [
+        "libs/domain/index.ts"
+      ],
+      "@app/usecases": [
+        "libs/usecases/index.ts"
+      ],
+      "@app/exceptions": [
+        "libs/exceptions/index.ts"
       ]
     }
   }

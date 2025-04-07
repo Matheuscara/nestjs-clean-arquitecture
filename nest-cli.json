@@ -10,13 +10,13 @@
   "monorepo": true,
   "root": "apps/nestjs-clean-arquitecture",
   "projects": {
-    "api": {
+    "user": {
       "type": "application",
-      "root": "apps/api",
+      "root": "apps/user",
       "entryFile": "main",
-      "sourceRoot": "apps/api/src",
+      "sourceRoot": "apps/user",
       "compilerOptions": {
-        "tsConfigPath": "apps/api/tsconfig.app.json"
+        "tsConfigPath": "apps/user/tsconfig.app.json"
       }
     },
     "worker": {
@@ -26,15 +26,6 @@
       "sourceRoot": "apps/worker/src",
       "compilerOptions": {
         "tsConfigPath": "apps/worker/tsconfig.app.json"
-      }
-    },
-    "core": {
-      "type": "library",
-      "root": "libs/core",
-      "entryFile": "index",
-      "sourceRoot": "libs/core/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/core/tsconfig.lib.json"
       }
     },
     "infrastructure": {
@@ -53,6 +44,33 @@
       "sourceRoot": "libs/shared/src",
       "compilerOptions": {
         "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "domain": {
+      "type": "library",
+      "root": "libs/domain",
+      "entryFile": "index",
+      "sourceRoot": "libs/domain/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/domain/tsconfig.lib.json"
+      }
+    },
+    "usecases": {
+      "type": "library",
+      "root": "libs/usecases",
+      "entryFile": "index",
+      "sourceRoot": "libs/usecases/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/usecases/tsconfig.lib.json"
+      }
+    },
+    "exceptions": {
+      "type": "library",
+      "root": "libs/exceptions",
+      "entryFile": "index",
+      "sourceRoot": "libs/exceptions/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/exceptions/tsconfig.lib.json"
       }
     }
   }
