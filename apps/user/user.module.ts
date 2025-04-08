@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { UserController } from './user.controller';
-import { UseCasesModule } from './useCases/useCases.module';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { LoggerModule } from '@app/shared';
+import { UserUseCasesModule } from '@app/application/user';
 
 @Module({
   imports: [
-    UseCasesModule,
+    UserUseCasesModule,
     DevtoolsModule.register({
       http: process.env.NODE_ENV !== 'production',
     }),

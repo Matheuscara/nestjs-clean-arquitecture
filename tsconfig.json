@@ -27,8 +27,8 @@
       "@app/domain": [
         "libs/domain/index.ts"
       ],
-      "@app/usecases": [
-        "libs/usecases/index.ts"
+      "@app/application/user": [
+        "libs/application/user/index.ts"
       ],
       "@app/exceptions": [
         "libs/exceptions/index.ts"

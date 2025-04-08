@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { WorkerController } from './worker.controller';
-import { WorkerService } from './worker.service';
-
+import { CreatedUserConsumer } from './consumers/createdUser.consumer';
+import { EventEmitterModule } from '@nestjs/event-emitter';
 @Module({
-  imports: [],
-  controllers: [WorkerController],
-  providers: [WorkerService],
+  imports: [EventEmitterModule.forRoot()],
+  controllers: [],
+  providers: [CreatedUserConsumer],
 })
 export class WorkerModule {}

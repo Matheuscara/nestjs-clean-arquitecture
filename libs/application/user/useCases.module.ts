@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
-import { CreateUser } from './index';
 import { UserRepositoryImpl } from '@app/infrastructure';
 import { DatabaseModule } from '@app/infrastructure';
+import { EventEmitterModule } from '@nestjs/event-emitter';
+import { CreateUser } from './createUser';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [DatabaseModule, EventEmitterModule.forRoot()],
   providers: [
     CreateUser,
     {
@@ -14,4 +15,4 @@ import { DatabaseModule } from '@app/infrastructure';
   ],
   exports: [CreateUser],
 })
-export class UseCasesModule {}
+export class UserUseCasesModule {}
