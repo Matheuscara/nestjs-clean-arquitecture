@@ -6,7 +6,7 @@ import {
   AutoIncrement,
   DataType,
 } from 'sequelize-typescript';
-
+import { UserType } from '@app/domain';
 @Table({ tableName: 'usuarios', timestamps: false })
 export class UserModel extends Model<UserModel> {
   @PrimaryKey
@@ -25,4 +25,7 @@ export class UserModel extends Model<UserModel> {
 
   @Column({ field: 'data_cadastro', type: DataType.DATE })
   dataCadastro: Date;
+
+  @Column(DataType.ENUM(UserType.ADMIN, UserType.BASIC, UserType.MODERATOR))
+  type: UserType;
 }

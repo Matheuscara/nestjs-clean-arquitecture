@@ -3,7 +3,7 @@ import { CreateUserDto } from '@app/application/user';
 
 export class UserMapper {
   static toDomainInFromCreate(dto: CreateUserDto): User {
-    return new User(dto.nome, dto.email, dto.senha);
+    return new User(dto.nome, dto.email, dto.senha, new Date(), dto.type);
   }
 
   static toResponse(user: User) {
@@ -11,6 +11,7 @@ export class UserMapper {
       nome: user.nome,
       email: user.email,
       dataCadastro: user.dataCadastro,
+      type: user.type,
     };
   }
 }
