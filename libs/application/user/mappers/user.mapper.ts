@@ -2,7 +2,7 @@ import { User } from '@app/domain';
 import { CreateUserDto } from '@app/application/user';
 
 export class UserMapper {
-  static toDomain(dto: CreateUserDto): User {
+  static toDomainInFromCreate(dto: CreateUserDto): User {
     return new User(dto.nome, dto.email, dto.senha);
   }
 
