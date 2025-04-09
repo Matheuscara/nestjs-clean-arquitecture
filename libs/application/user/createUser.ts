@@ -16,8 +16,6 @@ export class CreateUser {
   ) {}
 
   async execute(createUserDto: CreateUserDto): Promise<User> {
-    this.logger.log('Creating user');
-
     const user = UserMapper.toDomainInFromCreate(createUserDto);
 
     const createdUser = await this.repo.create(user);
