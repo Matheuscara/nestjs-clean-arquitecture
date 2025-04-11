@@ -1,9 +1,9 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
 import { User, UserRepository } from '@app/domain';
 import { CreateUserDto } from '@app/application/user';
-import { EventEmitter2 } from '@nestjs/event-emitter';
 import { CreatedUserEvent } from './events/createdUser.event';
 import { UserMapper } from './mappers/user.mapper';
+import { AmqpConnection } from '@golevelup/nestjs-rabbitmq';
 
 @Injectable()
 export class CreateUser {
@@ -12,7 +12,7 @@ export class CreateUser {
   constructor(
     @Inject('UserRepository')
     private readonly repo: UserRepository,
-    private readonly eventEmitter: EventEmitter2,
+    private readonly amqpConnection: AmqpConnection,
   ) {}
 
   async execute(createUserDto: CreateUserDto): Promise<User> {
@@ -22,8 +22,9 @@ export class CreateUser {
 
     this.logger.log('User created', createdUser);
 
-    this.eventEmitter.emit(
-      'created.user',
+    await this.amqpConnection.publish(
+      'exchange1',
+      'user.created',
       new CreatedUserEvent(createdUser.nome, createdUser.email),
     );
 

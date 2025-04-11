@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { UserRepositoryImpl } from '@app/infrastructure';
+import { CustomRabbitMQModule, UserRepositoryImpl } from '@app/infrastructure';
 import { DatabaseModule } from '@app/infrastructure';
-import { EventEmitterModule } from '@nestjs/event-emitter';
 import { CreateUser } from './createUser';
+import { LoggerModule } from '@app/shared';
 
 @Module({
-  imports: [DatabaseModule, EventEmitterModule.forRoot()],
+  imports: [DatabaseModule, CustomRabbitMQModule, LoggerModule],
   providers: [
     CreateUser,
     {

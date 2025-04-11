@@ -27,8 +27,9 @@ import { LoggerModule as LoggerModulePino } from 'nestjs-pino';
                 target: 'pino-pretty',
                 options: {
                   colorize: true,
-                  singleLine: false,
+                  singleLine: true,
                   ignore: 'req,res,headers',
+                  colorizeObjects: true,
                 },
               },
             },
@@ -47,5 +48,6 @@ import { LoggerModule as LoggerModulePino } from 'nestjs-pino';
       inject: [ConfigService],
     }),
   ],
+  exports: [LoggerModulePino],
 })
 export class LoggerModule {}

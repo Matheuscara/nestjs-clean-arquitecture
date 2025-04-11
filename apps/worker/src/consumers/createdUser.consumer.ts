@@ -1,14 +1,21 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { OnEvent } from '@nestjs/event-emitter';
-import { CreatedUserEvent } from '@app/usecases/user';
+import { RabbitSubscribe } from '@golevelup/nestjs-rabbitmq';
+import { CreatedUserEvent } from '@app/application/user';
+import { SendEmail } from '@app/application/notifications';
 
 @Injectable()
 export class CreatedUserConsumer {
   private readonly logger = new Logger(CreatedUserConsumer.name);
 
-  @OnEvent('created.user')
-  async handle(event: CreatedUserEvent) {
-    this.logger.log(`📨 Enviar email para ${event.email}`);
-    // Aqui você poderia chamar um EmailService, por exemplo
+  constructor(private readonly sendEmail: SendEmail) {}
+
+  @RabbitSubscribe({
+    exchange: 'exchange1',
+    routingKey: 'user.created',
+    queue: 'user-created-queue',
+  })
+  public async handleUserCreated(msg: CreatedUserEvent) {
+    this.logger.log('Worker - User created event received ');
+    await this.sendEmail.execute(msg.email);
   }
 }

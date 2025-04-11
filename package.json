@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start:all": "concurrently \"npm run start:dev user\"",
+    "start:all": "concurrently \"npm run start:dev user\" \"npm run start:dev worker\"",
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
@@ -19,6 +19,7 @@
     "test:e2e": "jest --config ./apps/nestjs-clean-arquitecture/test/jest-e2e.json"
   },
   "dependencies": {
+    "@golevelup/nestjs-rabbitmq": "^5.7.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^10.0.0",
