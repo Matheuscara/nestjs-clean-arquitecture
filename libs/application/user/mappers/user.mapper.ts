@@ -1,5 +1,5 @@
 import { User } from '@app/domain';
-import { CreateUserDto } from '@app/application/user';
+import { CreateUserDto } from '@app/application';
 
 export class UserMapper {
   static toDomainInFromCreate(dto: CreateUserDto): User {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { UserController } from './user.controller';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
-import { UserUseCasesModule } from '@app/application/user';
+import { UserUseCasesModule } from '@app/application';
 
 @Module({
   imports: [

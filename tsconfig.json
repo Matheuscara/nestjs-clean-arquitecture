@@ -27,11 +27,8 @@
       "@app/domain": [
         "libs/domain/index.ts"
       ],
-      "@app/application/user": [
-        "libs/application/user/index.ts"
-      ],
-      "@app/application/notifications": [
-        "libs/application/notifications/index.ts"
+      "@app/application": [
+        "libs/application/index.ts"
       ],
       "@app/exceptions": [
         "libs/exceptions/index.ts"

@@ -23,7 +23,7 @@
       "type": "application",
       "root": "apps/worker",
       "entryFile": "main",
-      "sourceRoot": "apps/worker/src",
+      "sourceRoot": "apps/worker",
       "compilerOptions": {
         "tsConfigPath": "apps/worker/tsconfig.app.json"
       }
@@ -62,15 +62,6 @@
       "sourceRoot": "libs/usecases/src",
       "compilerOptions": {
         "tsConfigPath": "libs/usecases/tsconfig.lib.json"
-      }
-    },
-    "exceptions": {
-      "type": "library",
-      "root": "libs/exceptions",
-      "entryFile": "index",
-      "sourceRoot": "libs/exceptions/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/exceptions/tsconfig.lib.json"
       }
     }
   }

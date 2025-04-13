@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { User, UserRepository } from '@app/domain';
+import { User, IUserRepository } from '@app/domain';
 import { UserModel } from '@app/infrastructure';
 import { UserMapper } from '@app/infrastructure';
 import { DataBaseConnection } from '../connection/database.connection';
 
 @Injectable()
-export class UserRepositoryImpl implements UserRepository {
+export class UserRepositoryImpl implements IUserRepository {
   constructor(private readonly db: DataBaseConnection) {
     this.db.sequelize.addModels([UserModel]);
   }

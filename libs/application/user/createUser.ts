@@ -1,6 +1,6 @@
 import { Inject, Injectable, Logger } from '@nestjs/common';
-import { User, UserRepository } from '@app/domain';
-import { CreateUserDto } from '@app/application/user';
+import { User, IUserRepository } from '@app/domain';
+import { CreateUserDto } from '@app/application';
 import { CreatedUserEvent } from './events/createdUser.event';
 import { UserMapper } from './mappers/user.mapper';
 import { AmqpConnection } from '@golevelup/nestjs-rabbitmq';
@@ -11,7 +11,7 @@ export class CreateUser {
 
   constructor(
     @Inject('UserRepository')
-    private readonly repo: UserRepository,
+    private readonly repo: IUserRepository,
     private readonly amqpConnection: AmqpConnection,
   ) {}
 
@@ -26,6 +26,14 @@ export class CreateUser {
       'exchange1',
       'user.created',
       new CreatedUserEvent(createdUser.nome, createdUser.email),
+    );
+
+    console.log(
+      await this.amqpConnection.request({
+        exchange: 'exchange1',
+        routingKey: 'get.credentials',
+        payload: 'test',
+      }),
     );
 
     return createdUser;
